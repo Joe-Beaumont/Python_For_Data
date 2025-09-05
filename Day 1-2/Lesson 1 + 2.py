@@ -64,7 +64,7 @@ print(numbers)
 import csv
 rows = []
 
-with open('employers.csv', newline="")as csvfile: #reading files
+with open('../Day 3/employers.csv', newline="")as csvfile: #reading files
     csvreader = csv.reader(csvfile) #establishing headers
     header = next(csvreader)
     for row in csvreader: #normal loop
@@ -76,14 +76,14 @@ print(f"Headers are: {header}")
 
 header = ['Name', 'age']
 data = [['Alex', 25], ['Brad', 30], ['Joey', 18]]
-with open('student_info.csv', 'w') as csvfile: #creates csv file - w means write mode (otherwise it would try read a non-existant file
+with open('../Day 4/student_info.csv', 'w') as csvfile: #creates csv file - w means write mode (otherwise it would try read a non-existant file
     csvwriter = csv.writer(csvfile)
     csvwriter.writerow(header)
     csvwriter.writerows(data)
 
 students = []
 
-with open('student_info.csv') as csvfile:
+with open('../Day 4/student_info.csv') as csvfile:
     csvreader = csv.reader(csvfile)
     header = next(csvreader)
     for student in csvreader:
@@ -92,7 +92,7 @@ with open('student_info.csv') as csvfile:
 print(students)
 
 # reading as a dictionary (object in js) using DictReader
-with open('employers.csv') as csvfile:
+with open('../Day 3/employers.csv') as csvfile:
     reader=csv.DictReader(csvfile)
     for row in reader:
         print(row["Name"], row["email"])
@@ -103,7 +103,7 @@ with open('employers.csv') as csvfile:
 headers = ['Name', 'age']
 data = [['Alex', 25], ['Brad', 30], ['Joey', 18]]
 
-with open('student_info.csv', 'w') as csvfile:
+with open('../Day 4/student_info.csv', 'w') as csvfile:
     writer = csv.DictWriter(csvfile, fieldnames = headers)
 
     writer.writeheader()
@@ -112,7 +112,7 @@ with open('student_info.csv', 'w') as csvfile:
 
 # namedtuple() - when importing a file, we can cast the incoming data to the namedtuple() for easier reading
 
-with open('employers.csv', 'r') as csvfile:
+with open('../Day 3/employers.csv', 'r') as csvfile:
     reader = csv.reader(csvfile)
     Employee = namedtuple("Employee", next(reader), rename=True)
     for row in reader:
@@ -134,7 +134,7 @@ capitals = {'VIC' : 'Victoria',
             'NT' : 'Wellington'
             }
 
-with open('australia.csv') as csvfile:
+with open('../Day 3/australia.csv') as csvfile:
     reader=csv.DictReader(csvfile)
     for row in reader:
         state = row["State"]
@@ -152,7 +152,7 @@ print(state_info)
 
 grades = []
 
-with open('studentgrades.csv', 'r', newline='\n') as csvfile:
+with open('../Day 4/studentgrades.csv', 'r', newline='\n') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
         grades.append(row)
